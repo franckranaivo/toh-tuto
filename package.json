@@ -50,11 +50,12 @@
     "zone.js": "0.8.17"
   },
   "devDependencies": {
-    "@angular/cli": "1.4.3",
+    "@angular/cli": "^1.4.3",
     "@angular/compiler-cli": "4.4.3",
     "@types/core-js": "0.9.36",
     "@types/jasmine": "2.5.54",
     "@types/node": "7.0.7",
+    "angular-ide": "^0.9.32",
     "autoprefixer": "7.1.4",
     "codelyzer": "3.2.0",
     "copyfiles": "1.2.0",

@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,7 +17,8 @@ import { ElectronService } from './providers/electron.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HeroDetailComponent
   ],
   imports: [
     BrowserModule,

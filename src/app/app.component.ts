@@ -1,13 +1,20 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { ElectronService } from './providers/electron.service';
+import { Hero } from './components/hero-detail/hero';
+import { HeroService } from './providers/hero.service'
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [HeroService]
 })
-export class AppComponent {
-  constructor(public electronService: ElectronService) {
+export class AppComponent implements OnInit {
+  heroes: Hero[];
+  title: 'Tower of Heroes';
+  selectedHero: Hero;
+  constructor(public electronService: ElectronService , private heroService: HeroService) {
 
     if (electronService.isElectron()) {
       console.log('Mode electron');
@@ -18,5 +25,14 @@ export class AppComponent {
     } else {
       console.log('Mode web');
     }
+  }
+  ngOnInit(): void {
+    this.getHeroes();
+  }
+  onSelect(hero: Hero): void {
+     this.selectedHero = hero;
+  }
+  getHeroes(): void {
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
 }
